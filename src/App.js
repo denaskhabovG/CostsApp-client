@@ -78,11 +78,12 @@ export default class App extends React.Component {
             <div className="App">
                 <div className='App-container'>
                     <AppTitle />
-                    <Header createCost={this.createCost} total={totalPrice(this.state.costs)} />
+                    <Header createCost={this.createCost} total={totalPrice(this.state.costs)} costs={this.state.costs}/>
                     <CoastsSection
                         deleteItem={this.deleteCostItem}
                         costs={this.state.costs}
-                        editItem={this.editData}/>
+                        editItem={this.editData}
+                        createCost={this.createCost}/>
                 </div>
             </div>
         );

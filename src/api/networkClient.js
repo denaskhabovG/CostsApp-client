@@ -3,7 +3,7 @@
 
 export class NetworkClient {
     static getAllCosts = async () => {
-        const request = await fetch('http://localhost:3002/allCosts', {
+        const request = await fetch('http://localhost:5000/costs', {
             method: 'GET',
         });
 
@@ -11,7 +11,7 @@ export class NetworkClient {
     }
 
     static createNewCost = async (text, price) => {
-        const response = await fetch('http://localhost:3002/createNewCost', {
+        const response = await fetch('http://localhost:5000/costs', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8',
@@ -27,7 +27,7 @@ export class NetworkClient {
     }
 
     static changeCostInfo = async (id, text, price) => {
-        const response = await fetch('http://localhost:3002/changeCostInfo', {
+        const response = await fetch(`http://localhost:5000/costs/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8',
@@ -36,7 +36,6 @@ export class NetworkClient {
             body: JSON.stringify({
                 text,
                 price,
-                _id: id,
             }),
         });
 
@@ -44,14 +43,8 @@ export class NetworkClient {
     }
 
     static deleteCost = async id => {
-        await fetch('http://localhost:3002/deleteCost', {
+        await fetch(`http://localhost:5000/costs/${id}`, {
             method: 'DELETE',
-            headers: {
-                'Content-Type':'application/json',
-            },
-            body: JSON.stringify({
-                _id: id
-            }),
         });
     }
 }
