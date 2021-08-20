@@ -1,4 +1,5 @@
 import React from "react";
+import {formatDate} from "../../utils/stringUtils";
 import './styles.css';
 
 export class CostItem extends React.Component {
@@ -6,11 +7,12 @@ export class CostItem extends React.Component {
         super(props);
         this.state = {
             edit: false,
-            editText: this.props.itemObj.text,
-            editPrice: this.props.itemObj.price};
+            editText: this.props.item.text,
+            editPrice: this.props.item.price,
+        };
     }
 
-    changeState = () => {
+    changeEditState = () => {
         this.setState({ edit: true });
     }
 
@@ -22,44 +24,44 @@ export class CostItem extends React.Component {
         this.setState({ editText: event.target.value });
     }
 
-    editPrice = () => {
+    editItem = (event) => {
+        if (event.key === 'Enter') {
+            this.setState({ edit: false });
+            this.props.editItem(this.props.item._id, this.state.editText, this.state.editPrice);
+        }
+    }
+
+    getPriceLayout = () => {
         if (!this.state.edit) {
-            return <span className='cost__price'> {!this.state.edit ? this.state.editPrice : this.props.itemObj.price} </span>
+            return <span className='cost__price'> {!this.state.edit ? this.state.editPrice : this.props.item.price} </span>
         } else {
             return <input onKeyPress={this.editItem} onChange={this.changePrice} className='cost__input cost__input--price' type='text'/>
         }
     }
 
-    editShop = () => {
+    getShopLayout = () => {
         if (!this.state.edit) {
-            return <span className='cost__date'> "{!this.state.edit ? this.state.editText : this.props.itemObj.text}" </span>
+            return <span className='cost__date'> "{!this.state.edit ? this.state.editText : this.props.item.text}" </span>
         } else {
             return <input onKeyPress={this.editItem} onChange={this.changeText} className='cost__input' type='text'/>
         }
     }
 
-    editItem = (event) => {
-        if (event.key === 'Enter') {
-            this.setState({ edit: false });
-            this.props.setEditedPrice(this.props.itemObj._id, parseInt(this.state.editPrice));
-            this.props.editItem(this.props.itemObj._id, this.state.editText, this.state.editPrice);
-        }
-    }
-
     render() {
         return (
-            <li className='coasts-list__item cost' id={this.props.itemObj._id}>
+            <li className='coasts-list__item cost' id={this.props.item._id}>
                 <div className='cost__inner'>
-                    <span className='cost__number'> {this.props.increaseCosts}) </span> Магазин
-                    {this.editShop()}
-                    <span className='cost__date'> {this.props.date.toLocaleString()} </span>
+                    <span className='cost__number'> {this.props.index}) </span> Магазин
+                    {this.getShopLayout()}
+                    <span className='cost__date'>
+                        {formatDate(this.props.item.date)}
+                    </span>
                 </div>
                 <div>
-                    {this.editPrice()}
-                    <button onClick={() => this.changeState()} className='cost__btn cost__btn--edit'>Изменить</button>
+                    {this.getPriceLayout()}
+                    <button onClick={this.changeEditState} className='cost__btn cost__btn--edit'>Изменить</button>
                     <button onClick={() => {
-                        this.props.deleteItem(this.props.itemObj._id);
-                        // this.deleteData();
+                        this.props.deleteItem(this.props.item._id);
                     }} className='cost__btn cost__btn--delete'>&times;</button>
                 </div>
             </li>

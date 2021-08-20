@@ -8,11 +8,7 @@ export class CoastsSection extends React.Component {
             <section className='coasts-section'>
                 <CostsList
                     deleteItem={this.props.deleteItem}
-                    date={this.props.date}
-                    costs={this.props.costsObj}
-                    total={this.props.total}
-                    createCostObj={this.props.createCostObj}
-                    setEditedPrice={this.props.setEditedPrice}
+                    costs={this.props.costs}
                     editItem={this.props.editItem}/>
             </section>
         )
