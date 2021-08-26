@@ -4,7 +4,7 @@ export class AuthClient {
     }
     static registration = async (username, password) => {
         try {
-            const response = await fetch('http://localhost:5001/auth/registration', {
+            const response = await fetch('https://costs-app.herokuapp.com/auth/registration', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8',
@@ -29,7 +29,7 @@ export class AuthClient {
 
     static login = async (username, password, error, fn) => {
         try {
-            const response = await fetch('http://localhost:5001/auth/login', {
+            const response = await fetch('https://costs-app.herokuapp.com/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8',
@@ -57,7 +57,7 @@ export class AuthClient {
 
     static refreshUserToken = async (token) => {
         try {
-            const response = await fetch('http://localhost:5001/auth/refresh', {
+            const response = await fetch('https://costs-app.herokuapp.com/auth/refresh', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8',
