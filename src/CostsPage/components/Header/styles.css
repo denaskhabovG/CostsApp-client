@@ -1,0 +1,60 @@
+.header__form {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.header__label {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.form__title {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.header__input {
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+    height: 50px;
+}
+
+.header__input--spent {
+    width: 320px;
+}
+
+.header__input--haw-many {
+    width: 200px;
+}
+
+.header__btn {
+    cursor: pointer;
+    border: none;
+    background-color: #63af63;
+    font-size: 20px;
+    height: 53px;
+    border-radius: 5px;
+    padding: 0 15px;
+    align-self: flex-end;
+    font-weight: 300;
+}
+
+.cost__btn--edit {
+    margin-right: 15px;
+}
+
+.header__total {
+    float: right;
+    font-size: 20px;
+}
+
+.error-block {
+    color: red;
+    position: absolute;
+    bottom: -20px;
+    left: 45px;
+}
