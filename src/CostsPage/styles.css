@@ -1,0 +1,28 @@
+.log-out {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    display: inline-block;
+}
+
+.log-out__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
+    font-weight: 600;
+    transition: color .3s ease-in-out, background-color .3s ease-in-out;
+    background-color: black;
+    color: white;
+}
+
+.log-out__btn:hover {
+    transition: color .3s ease-in-out, background-color .3s ease-in-out;
+    background-color: white;
+    color: black;
+}

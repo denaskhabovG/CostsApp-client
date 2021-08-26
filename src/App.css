@@ -19,3 +19,8 @@ body {
     border-radius: 10px;
     background-color: deepskyblue;
 }
+
+.site-link {
+    color: white;
+    text-decoration: none;
+}
