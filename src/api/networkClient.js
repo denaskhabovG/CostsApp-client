@@ -6,7 +6,7 @@ export class NetworkClient {
         try {
             const tokens = JSON.parse(localStorage.getItem('token'));
 
-            const response = await fetch('http://localhost:5001/costs', {
+            const response = await fetch('https://costs-app.herokuapp.com/costs', {
                 method: 'GET',
                 headers: {
                     'Authorization': 'Bearer ' + tokens.accessToken,
@@ -29,7 +29,7 @@ export class NetworkClient {
         try {
             const tokens = JSON.parse(localStorage.getItem('token'));
 
-            const response = await fetch('http://localhost:5001/costs', {
+            const response = await fetch('https://costs-app.herokuapp.com/costs', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8',
@@ -52,7 +52,7 @@ export class NetworkClient {
         try {
             const tokens = JSON.parse(localStorage.getItem('token'));
 
-            const response = await fetch(`http://localhost:5001/costs/${id}`, {
+            const response = await fetch(`https://costs-app.herokuapp.com/costs/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8',
@@ -75,7 +75,7 @@ export class NetworkClient {
         try {
             const tokens = JSON.parse(localStorage.getItem('token'));
 
-            await fetch(`http://localhost:5001/costs/${id}`, {
+            await fetch(`https://costs-app.herokuapp.com/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8',

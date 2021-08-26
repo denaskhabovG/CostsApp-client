@@ -12,7 +12,7 @@ export class RegistrationPage extends React.Component{
     }
 
     goToLoginPage = () => {
-        document.location.href = "http://localhost:3000";
+        document.location.href = "https://costs-app-mdwvbh29o-exceed.vercel.app";
     }
 
     createUser = event => {

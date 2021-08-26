@@ -12,7 +12,7 @@ export class LoginPage extends React.Component {
     }
 
     goToCostsPage = () => {
-        document.location.href = "http://localhost:3000/costs";
+        document.location.href = "https://costs-app-mdwvbh29o-exceed.vercel.app/costs";
     }
 
     loginUser = event => {
