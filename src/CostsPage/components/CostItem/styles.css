@@ -1,0 +1,32 @@
+.coasts-list__item {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.coasts-list__item:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.cost__price {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+.cost__btn {
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: opacity .3s ease-in-out;
+}
+
+.cost__btn:hover {
+    opacity: 0.8;
+    transition: opacity .3s ease-in-out;
+}
+
+.cost__input--price {
+    margin-right: 10px;
+    width: 80px;
+}
