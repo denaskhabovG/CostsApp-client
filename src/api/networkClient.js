@@ -1,6 +1,7 @@
 import {AuthClient} from "../auth/authClient";
 
 export class NetworkClient {
+
     static getAllCosts = async () => {
         try {
             const tokens = JSON.parse(localStorage.getItem('token'));
