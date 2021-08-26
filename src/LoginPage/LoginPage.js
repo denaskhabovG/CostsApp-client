@@ -15,7 +15,7 @@ export class LoginPage extends React.Component {
         document.location.href = "https://costs-app-mdwvbh29o-exceed.vercel.app/costs";
     }
 
-    loginUser = event => {
+    loginUser = async event => {
         event.preventDefault();
 
         const username = this.usernameInput.current.value;
@@ -24,11 +24,14 @@ export class LoginPage extends React.Component {
         if (!username || !password) {
             this.errorMessage.current.innerHTML = 'Заполните все поля!';
         } else {
-            AuthClient.login(
+            const token = await AuthClient.login(
                 this.usernameInput.current.value,
                 this.passwordInput.current.value,
                 this.errorMessage.current.innerHTML,
-                this.goToCostsPage);
+            );
+            if (token !== '') {
+                this.goToCostsPage()
+            }
             this.usernameInput.current.value = '';
             this.passwordInput.current.value = '';
         }

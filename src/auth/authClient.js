@@ -42,16 +42,17 @@ export class AuthClient {
             });
 
             const result = await response.json();
-            error = result.message;
 
             if (result.accessToken) {
-                localStorage.setItem('token', JSON.stringify({ accessToken: result.accessToken, refreshToken: result.refreshToken }));
-                error = '';
-                fn();
+                localStorage.setItem('token', JSON.stringify({
+                    accessToken: result.accessToken,
+                    refreshToken: result.refreshToken
+                }));
             }
-
+            return result.accessToken;
         } catch (e) {
             console.log(e);
+            return '';
         }
     }
 
