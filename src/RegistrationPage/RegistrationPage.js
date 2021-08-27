@@ -27,9 +27,9 @@ export class RegistrationPage extends React.Component{
             this.errorMessage.current.innerHTML = 'Пароль должен содеражать больше 4 смволов!';
         } else {
             AuthClient.registration(this.usernameInput.current.value, this.passwordInput.current.value);
-            this.goToLoginPage();
             this.usernameInput.current.value = '';
             this.passwordInput.current.value = '';
+            this.goToLoginPage();
         }
     }
 
