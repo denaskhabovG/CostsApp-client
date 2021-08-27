@@ -39,6 +39,7 @@
     border: none;
     height: 40px;
     cursor: pointer;
+    position: relative;
     border-radius: 5px;
     margin-bottom: 10px;
     background-color: black;
@@ -48,8 +49,7 @@
 
 .registration__btn:hover {
     transition: color .3s ease-in-out, background-color .3s ease-in-out;
-    background-color: white;
-    color: black;
+    opacity: 0.8;
 }
 
 .question__text {
@@ -62,4 +62,11 @@
     position: absolute;
     bottom: 93px;
     left: 45px;
+}
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 25px;
+    height: 35px;
 }

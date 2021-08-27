@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AuthClient } from "../auth/authClient";
+import {spinner} from "../utils/preloaderUtils/preloadUtils";
 import './styles.css';
 
 export class RegistrationPage extends React.Component{
@@ -9,10 +10,7 @@ export class RegistrationPage extends React.Component{
         this.usernameInput = React.createRef();
         this.passwordInput = React.createRef();
         this.errorMessage = React.createRef();
-    }
-
-    goToLoginPage = () => {
-        document.location.href = "https://costs-app-mdwvbh29o-exceed.vercel.app";
+        this.spinnerButton = React.createRef();
     }
 
     createUser = event => {
@@ -29,7 +27,11 @@ export class RegistrationPage extends React.Component{
             AuthClient.registration(this.usernameInput.current.value, this.passwordInput.current.value);
             this.usernameInput.current.value = '';
             this.passwordInput.current.value = '';
-            // this.goToLoginPage();
+            spinner(this.spinnerButton);
+            setTimeout(() => {
+                document.location.href = "https://costs-app-mdwvbh29o-exceed.vercel.app";
+            }, 3000);
+
         }
     }
 
@@ -48,7 +50,7 @@ export class RegistrationPage extends React.Component{
                         <input autoComplete="off" ref={this.passwordInput} className='registration__input' type="password"/>
                     </label>
                     <span className='error-block' ref={this.errorMessage} > </span>
-                    <button className='registration__btn'>Создать</button>
+                    <button ref={this.spinnerButton} className='registration__btn'>Создать</button>
                 </form>
                 <div className='registration__question'>
                     <span className='question__text'>Если уже есть аккаунт, то Вы можете</span>
