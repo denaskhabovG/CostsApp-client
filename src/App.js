@@ -1,7 +1,7 @@
 import React from "react";
 import { CostsPage } from "./CostsPage/CostsPage";
 import { RegistrationPage } from "./RegistrationPage/RegistrationPage";
-import { LoginPage } from "./LoginPage/LoginPage";
+import LoginPage from "./LoginPage/LoginPage";
 import {
     BrowserRouter as Router,
     Switch,

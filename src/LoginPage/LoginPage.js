@@ -1,10 +1,10 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import { AuthClient } from "../auth/authClient";
-import './styles.css';
 import {spinner} from "../utils/preloaderUtils/preloadUtils";
+import './styles.css';
 
-export class LoginPage extends React.Component {
+class LoginPage extends React.Component {
     constructor(props) {
         super(props);
         this.usernameInput = React.createRef();
@@ -31,7 +31,7 @@ export class LoginPage extends React.Component {
                 spinner(this.spinnerButton);
 
                 setTimeout(() => {
-                    document.location.href = "https://costs-app-mdwvbh29o-exceed.vercel.app/costs";
+                    this.props.history.push("/costs");
                 }, 3000);
             }
             this.usernameInput.current.value = '';
@@ -64,3 +64,5 @@ export class LoginPage extends React.Component {
         );
     }
 }
+
+export default withRouter(LoginPage);
