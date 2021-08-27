@@ -29,7 +29,7 @@ export class RegistrationPage extends React.Component{
             AuthClient.registration(this.usernameInput.current.value, this.passwordInput.current.value);
             this.usernameInput.current.value = '';
             this.passwordInput.current.value = '';
-            this.goToLoginPage();
+            // this.goToLoginPage();
         }
     }
 
