@@ -75,7 +75,7 @@ export class NetworkClient {
         try {
             const tokens = JSON.parse(localStorage.getItem('token'));
 
-            await fetch(`https://costs-app.herokuapp.com/${id}`, {
+            await fetch(`https://costs-app.herokuapp.com/costs/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8',
